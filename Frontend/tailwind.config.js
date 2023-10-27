@@ -5,7 +5,13 @@ export default {
     "./src/**/*.{vue,js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      colors:{
+        'diffWhite':"#e1e1e1",
+        "diffBlack":"#0e0f11"
+
+      }
+    },
   },
   plugins: [],
 }

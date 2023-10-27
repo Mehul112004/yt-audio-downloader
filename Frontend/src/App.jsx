@@ -1,27 +1,18 @@
-import { useState,useRef, useEffect } from 'react'
-import axios from "axios"
-// import './App.css'
+import { useState } from "react"
 
 function App() {
-  // const inputRef = useRef(null);
-  // const handleClick=()=>{
-  //   console.log(inputRef.current.value)
+  const [clicked,setClicked]=useState(false)
+  const handleClick=()=>{
+    setClicked(true)
+  }
 
-  //   axios.post("http://localhost:3000/send",{url:inputRef.current.value})
-  //     .then((response)=>{
-  //         console.log(response);
-  //     })
-  //     .catch((err)=>{
-  //       console.log(err);
-  //     })
-  // }
   return (
     <>
-      <div className="flex border border-red-500 flex-col p-8 justify-center items-center gap-4">
-        <h1>Enter your Youtube video URL :- </h1>
-        <form action="http://localhost:3000/api/send" method='POST'>
-        <input type="text"  className='px-6 py-2 max-w-xl border border-black' name='url'/>
-        <button type='submit' className='bg-black text-white p-2 rounded-md active:scale-95'>Download</button>
+      <div className="flex border border-red-500 flex-col p-8 justify-center items-center h-max gap-5 rounded-xl">
+        <h1 className="sm:text-5xl text-diffBlack text-3xl font-mono">Enter your Youtube video URL :- </h1>
+        <form action="http://localhost:3000/api/send" method='POST' className="flex flex-col w-full justify-center items-center gap-4 h-full">
+        <input type="text"  className={`px-6 py-4 text-2xl text-gray-300 font-semibold w-full h-full max-w-2xl rounded-lg focus:outline-red-800 bg-diffBlack backdrop-blur-md`} name='url' onClick={handleClick}/>
+        <button type='submit' className='px-5 py-3 text-2xl rounded-md max-w-md text-white bg-orange-700 active:scale-95'>Download</button>
         </form>
       </div>
     </>
