@@ -40,10 +40,10 @@ app.post("/api/send", (req, res) => {
             const $ = cheerio.load(html)
             let title = $("head").find("title").text()
             console.log(title, typeof title);
-            title=title.slice(0,15);
+            title=title.slice(0,30);
             console.log(title, typeof title);
             res.setHeader("Content-Type", "audio/mpeg");
-            res.setHeader(`Content-Disposition`, `attachment; filename=audio.mp3`);
+            res.setHeader(`Content-Disposition`, `attachment; filename=${title}.mp3`);
             const audio = ytdl(url, { quality: 'highestaudio' });
             // audio.pipe(res);
             await audio.pipe(fs.createWriteStream(`audio.mp3`))
